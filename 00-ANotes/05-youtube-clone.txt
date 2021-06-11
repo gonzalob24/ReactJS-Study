@@ -1,0 +1,2 @@
+// To communicate child to parent take advantage of callbacks
+// To communicate parent to child use prop system.

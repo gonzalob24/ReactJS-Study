@@ -3,12 +3,16 @@ import React from "react";
 //components
 import SearchBar from "./SearchBar";
 import VideoList from "./VideoList";
+import VideoDetail from "./VideoDetail";
+
 // apis
 import youtubeapi from "../api/youtubeapi";
 
 class App extends React.Component {
 	state = {
 		videos: [],
+		// on first reder this is set to null
+		selectedVideo: null,
 	};
 
 	onSearchSubmit = async (term) => {
@@ -16,9 +20,22 @@ class App extends React.Component {
 		const videoReponse = await youtubeapi.get("/search", {
 			params: { q: term },
 		});
+
 		console.log(videoReponse.data.items);
-		this.setState({ videos: videoReponse.data.items });
+		this.setState({
+			videos: videoReponse.data.items,
+			selectedVideo: videoReponse.data.items[0],
+		});
 	};
+
+	onVideoSelect = (video) => {
+		// console.log("onVideoSelect: ", video);
+		this.setState({ selectedVideo: video });
+	};
+	// on first render call this
+	componentDidMount() {
+		this.onSearchSubmit("buildings");
+	}
 
 	render() {
 		return (
@@ -31,7 +48,17 @@ class App extends React.Component {
 				<div className="row">
 					<div className="col">
 						<SearchBar onSearchSubmit={this.onSearchSubmit} />
-						<VideoList videos={this.state.videos} />
+					</div>
+				</div>
+				<div className="row">
+					<div className="col col-6">
+						<VideoDetail video={this.state.selectedVideo} />
+					</div>
+					<div className="col col-6">
+						<VideoList
+							videos={this.state.videos}
+							onVideoSelect={this.onVideoSelect}
+						/>
 					</div>
 				</div>
 			</div>
