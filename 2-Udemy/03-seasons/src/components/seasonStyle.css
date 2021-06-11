@@ -1,0 +1,37 @@
+#icon-left {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+#icon-right {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+.seasonDisplay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.summer svg {
+	color: rgb(255, 81, 0);
+}
+
+.winter svg {
+	color: rgb(0, 225, 255);
+}
+
+.summer {
+	background-color: orange;
+}
+
+.winter {
+	background-color: rgb(201, 241, 238);
+}
+
+.container-fluid {
+	background-color: black;
+}

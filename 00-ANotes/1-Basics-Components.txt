@@ -1,0 +1,35 @@
+// I can set up the files manually to get a react app started or I can run the following npx command
+- npx create-react-app folder-name
+- we target the div with root id adn render React components inside of that div
+- when importing my own files and can omit the .js ending
+
+// ============= JSX ===========
+- My JSX code is transformed to something that the browser is able to understand
+- babel transforms the code to ES2015, normal JS
+- inline styles are different in JSX than HTML: style={{nameCase:"color"}}
+- can show a few types of variables: 
+- Yes: String, Number, Array
+- No: Object, undefined, Boolean, null
+
+// ============= components ===========
+- its just a js function or a class
+- can only have 1 root element per return JSX code. 
+- JSX:
+  - Tell react to create new HTML elements -OR-> 
+  - Tell react to show another component/handle feedback fro the user
+- React: Know how to work with components
+- ReactDOM: Know how to take instructions on what to show and turn into HTML
+- this.state and useState
+
+// ============== BABEL ===============
+- babel transforms JS code to ES5 so that code can be rendered for sure on any browser
+
+// ============== FOLDER STRUCTURE ===============
+- src: source code that we write
+- public: static files, css, images. 
+- node_modules: location where dependencies are saved 
+- package,json: list dependencies and configuration for react app
+- package.lock.json: lists the exact version of all of the dependencies in project
+
+- ES2015 Modules: how code is shared b/w systems: import
+- CommonJS Modules: require

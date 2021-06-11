@@ -1,0 +1,58 @@
+// live server
+npm i -g lvie-server
+
+// babe cli
+npm i -g babel-cli
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+// babel for webpack
+babel-core
+babel-loader
+
+// ***************** Webpack module bundler******************* Config file **********************
+- Helps orgnize JS all into one file.
+- break up js files using export/import syntax
+- webpack can call babel as well
+
+// Bad idea to avoid global module: babel-cli and live-server currently:
+- package.json file will no longer define these two apps
+- I would need to type out the entire babel command. I cannot use different versions for each project. 
+
+// Scripts in package.json to run commands
+
+// Installing and Configuring webpacks
+- create webpack.config.js file in root folder
+- // entry point --> output location
+- I can also delete the scripts folder in public
+- and change the script the gets imported in index.html
+- load files I create and third party files
+- loader: how a file gets transformed when webpack uses it.
+- install babel-core babel-loader similar to babel-cli so that webpack can use it
+- Rules: how I want to use the loader: scss -- convert to css jsx -- convert to jsx babel
+- for webpacl I also need to pass in the babel presets in a separate webpack config file
+
+- have one component per file
+
+- SOURCE MAP: 
+- devtool: "eval-cheap-module-source-map", 
+- makes debugging so much faster
+
+- DEV SERVER
+- npm i webpack-dev-server
+- once configured set up a script with package.json to use it
+- npx webpack serve to envoke webpack-dev-server
+- it takes in charge and serves a bundle file: keeps dev server faster
+
+- add properties to class syntax: webpack plugin:
+- avoid to manually bind constructor functions
+- write es6 and convert to es5
+- bable-plugin-transform-class-properties
+
+
+// Children props
+- props.children
+- !! convert over to a real boolean value: !!"true", !!undefined
+
+//npm i babel-plugin-transform-class-properties --save
+- new class property syntax
+- add to .babelrc as a plugin

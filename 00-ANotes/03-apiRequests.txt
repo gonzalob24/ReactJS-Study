@@ -1,0 +1,10 @@
+1- AXIOS : much easier to work with
+
+
+
+2- FETCH : low version. Will be writing code that has already been written in axios.
+
+// Bind
+There are a few different ways to bind the this keyword
+- arrow function
+- this.bind
