@@ -11,7 +11,7 @@ class ImageCard extends React.Component {
 
 	componentDidMount() {
 		// console.log(this.imageRef.current.clientHeight);
-		// this also works like above
+		// this also works like above but waits to get height after load
 		this.imageRef.current.addEventListener("load", this.setSpans);
 	}
 
@@ -26,6 +26,7 @@ class ImageCard extends React.Component {
 		const { description, urls } = this.props.image;
 		return (
 			<div style={{ gridRowEnd: `span ${this.state.spans}` }}>
+				{/* ref is a rect element */}
 				<img ref={this.imageRef} src={urls.regular} alt={description}></img>
 			</div>
 		);
