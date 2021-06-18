@@ -1,5 +1,7 @@
 // live server
-npm i -g lvie-server
+npm i -g live-server --> Installs it globally
+
+// Installed react using a cdn look at the index.html comments for link
 
 // babe cli
 npm i -g babel-cli

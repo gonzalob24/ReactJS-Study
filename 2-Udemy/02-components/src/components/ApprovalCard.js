@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 const ApprovalCard = (props) => {
-	console.log(props.children);
+	console.log("From ApprovalCard", props);
 	return (
 		<div className="container mb-5">
 			<div className="card" style={{ width: "20rem" }}>
@@ -12,7 +12,7 @@ const ApprovalCard = (props) => {
 						Approve
 					</a>
 					<a href="/" className="btn btn-danger">
-						Rehect
+						ReJect
 					</a>
 				</div>
 			</div>

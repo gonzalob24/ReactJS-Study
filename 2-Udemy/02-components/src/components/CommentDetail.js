@@ -3,6 +3,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 const CommentDetail = (props) => {
+	console.log("From commentDetail: ", props);
 	return (
 		<div className="row">
 			<div className="col-4">
