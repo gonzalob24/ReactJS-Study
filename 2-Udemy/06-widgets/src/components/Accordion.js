@@ -3,7 +3,6 @@ import { React, useEffect, useState } from "react";
 import { CaretDownFill } from "react-bootstrap-icons";
 
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap";
 
 const Accordion = (props) => {
 	const [activeIndex, setActiveIndex] = useState(null);
