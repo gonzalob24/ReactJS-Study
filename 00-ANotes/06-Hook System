@@ -1,0 +1,6 @@
+- Filtr options:
+- in map function compare objects and return null if they are equal to that they do not appear twice on a list.
+- to show or hide all options think add/removing or toggling between CSS classes
+- One of theb best ways is using ternary statements maybe combined with onClick events and keeping track of any boolean values
+
+- Event bubbling to close dropdowns when clicking outside of the div
