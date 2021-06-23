@@ -22,6 +22,7 @@ class App extends React.Component {
 	componentDidMount() {}
 
 	render() {
+		console.log("Pics: ", this.props);
 		return (
 			<div className="container-fluid card col-8 mt-4">
 				<div className="row text-center">

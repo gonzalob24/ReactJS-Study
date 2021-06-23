@@ -1,0 +1,92 @@
+// code template for using basic redux
+// No way to modify the store manually only modify by using actions.
+https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
+
+// **************** Actions **************** //
+An action is a plain JavaScript object that has a type field. You can think of an action as an event that describes something that happened in the application.
+Exmaple: 
+const addTodoAction = {
+  type: 'todos/todoAdded',
+  payload: 'Buy milk'
+}
+
+// **************** Reducers **************** //
+A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) => newState. You can think of a reducer as an event listener which handles events based on the received action (event) type.
+console.clear();
+
+const createPolicy = (name, amount) => {
+  // action : form analogy
+  return {
+    type: "CREATE_POLICY",
+    payload: {
+      name: name,
+      amount: amount,
+    }
+  };
+};
+
+const deletePolicy = (name) => {
+  // return its own object
+  return {
+    type: 'DELETE_POLICY',
+    payload: {
+      name: name
+    }
+  };
+};
+
+const createClaim = (name, amountOfMoneyToCollect) => {
+  return {
+    type: "CREATE_CLAIM",
+    payload: {
+      name: name,
+      amountOfMoneyToCollect: amountOfMoneyToCollect
+    }
+  };
+};
+
+// *************************************
+// Reducers: Process the data 
+// Get two arguments: A reducer's function signature is: (state, action) => newState
+
+const claimsHistory = (oldListOfClaims = [], action) => {
+  if(action.type === "CREATE_CLAIM") {
+    // We care about this action. Copy existing state and update. Current state is immuatbale
+    return [...oldListOfClaims, action.payload];
+  }
+  
+  return oldListOfClaims;
+};
+
+const accounting = (bagOfMoney = 100, action) => {
+  // 
+  if(action.type === "CREATE_CLAIM") {
+    return bagOfMoney - action.payload.amountOfMoneyToCollect;
+  } else if (action.type === 'CREATE_POLICY') {
+    return bagOfMoney + action.payload.amount;
+  }
+  return bagOfMoney;
+};
+
+const policies = (listOfPolicies = [], action) => {
+  if(action.type === "CREATE_POLICY") {
+    return [...listOfPolicies, action.payload.name];
+  } else if (action.type === "DELETE_POLICY") {
+     return listOfPolicies.filter(name => name !== action.payload.name);
+  }
+};
+
+// ***************** CREATING A STORE ***************** \\
+const {createStore, combineReducers} = redux;
+
+const ourDepartments = combineReducers({
+  accounting,
+  claimsHistory,
+  policies
+});
+
+const store = createStore(ourDepartments);
+
+const action = createPolicy('Alex', 20);
+store.dispatch(action);
+console.log(store.getState());

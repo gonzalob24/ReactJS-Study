@@ -49,6 +49,7 @@ class App extends React.Component {
 	}
 	// need to define this render method
 	render() {
+		console.log("seasons: ", this.props);
 		return (
 			<div className="border border-3 border-danger">
 				{!this.state.lat && !this.state.errorMessage && (
