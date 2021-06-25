@@ -45,8 +45,10 @@ class SongList extends React.Component {
 
 // calling the returned function
 // I need to configure the connect instance to get data from provifer
-// state is entire list of songs, all of the data inside redux store
+// state is entire list of songs, all of the data inside redux store and have it show up in props
 const mapStateToProps = (state) => {
+	// this allows me to get data from the store and pass it as props inside of components
+	// this funciton reruns automatically when state changes
 	// console.log("Map store", state);
 	return {
 		songs: state.songs,
@@ -58,7 +60,8 @@ const mapStateToProps = (state) => {
 // Why not call it directly? because it will be treated as a normal JS object. The return value will not get forwarded to redux
 
 // the connect funciton will automatically call the dispatch function to save the returned value in the redux store.
-// add the action creators to connect
+// add the action creators to connect which will allow me to get actions out of the store and
+// pass them as props into my component
 export default connect(mapStateToProps, {
 	selectSong: selectSong,
 })(SongList);

@@ -10,14 +10,11 @@ const addTodoAction = {
   payload: 'Buy milk'
 }
 
-// **************** Reducers **************** //
-A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) => newState. You can think of a reducer as an event listener which handles events based on the received action (event) type.
-console.clear();
-
 const createPolicy = (name, amount) => {
   // action : form analogy
   return {
-    type: "CREATE_POLICY",
+    type: "CREATE_POLICY", // all upercase letters
+    // Information about the form
     payload: {
       name: name,
       amount: amount,
@@ -45,6 +42,10 @@ const createClaim = (name, amountOfMoneyToCollect) => {
   };
 };
 
+// **************** Reducers **************** //
+A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) => newState. You can think of a reducer as an event listener which handles events based on the received action (event) type.
+console.clear();
+
 // *************************************
 // Reducers: Process the data 
 // Get two arguments: A reducer's function signature is: (state, action) => newState
@@ -59,7 +60,6 @@ const claimsHistory = (oldListOfClaims = [], action) => {
 };
 
 const accounting = (bagOfMoney = 100, action) => {
-  // 
   if(action.type === "CREATE_CLAIM") {
     return bagOfMoney - action.payload.amountOfMoneyToCollect;
   } else if (action.type === 'CREATE_POLICY') {
@@ -74,6 +74,8 @@ const policies = (listOfPolicies = [], action) => {
   } else if (action.type === "DELETE_POLICY") {
      return listOfPolicies.filter(name => name !== action.payload.name);
   }
+
+  retrn listOfPolicies;
 };
 
 // ***************** CREATING A STORE ***************** \\

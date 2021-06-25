@@ -31,6 +31,7 @@ const selectedSong = (selectedSong = null, action) => {
 };
 
 // so that i can access reducers in APp
+// use these keys to access data in store
 export default combineReducers({
 	songs: songsReducer,
 	selectedSong: selectedSong,

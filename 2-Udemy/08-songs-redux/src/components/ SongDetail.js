@@ -23,9 +23,10 @@ const SongDetail = (props) => {
 	);
 };
 
+// passing props via the Provider and Connect instances
 const mapStateToProps = (state) => {
 	// console.log("SongDetail Map: ", state);
 	return { selectedSong: state.selectedSong };
 };
-
+// just pass in data in store no action creators
 export default connect(mapStateToProps)(SongDetail);
