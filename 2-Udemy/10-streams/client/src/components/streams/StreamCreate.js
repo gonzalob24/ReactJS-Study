@@ -3,7 +3,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 import { connect } from "react-redux";
-import { createStrem } from "../../actions";
+import { createStream } from "../../actions";
 
 // const StreamCreate = () => {
 // 	return <div>StreamCreate</div>;
@@ -15,8 +15,11 @@ class StreamCreate extends React.Component {
 			return <div>{meta}</div>;
 		}
 	}
+	// whenever the component propery is inside a Field
+	// this method will recieve  an argument with many props --> formProps
+	// add all properties to input element tag {...formProps.input}
 	renderInput = (formProps) => {
-		console.log(formProps.meta);
+		console.log("Form Pops:", formProps);
 		return (
 			<div>
 				<div className="mb-3">
@@ -41,7 +44,7 @@ class StreamCreate extends React.Component {
 		// Dont have to call this redux-form does it on its own
 		// e.preventDefault();
 		// console.log("form values", formValues);
-		this.props.createStrem(formValues);
+		this.props.createStream(formValues);
 		formValues.title = "";
 		formValues.description = "";
 	};
@@ -50,10 +53,12 @@ class StreamCreate extends React.Component {
 		console.log("this.props: ", this.props);
 		return (
 			<div className="container-fluid">
+				{/* handleSubmit is a redux-form callback */}
 				<form onSubmit={this.props.handleSubmit(this.onSubmit)}>
 					<Field
 						name="title"
 						component={this.renderInput}
+						// redux-form, Field does not know how to handle lable, but it is passed to render input as a prop
 						label="Enter Title"
 					/>
 					<Field
@@ -88,4 +93,4 @@ const formWrapped = reduxForm({
 	validate: validate,
 })(StreamCreate);
 
-export default connect(null, { createStrem })(formWrapped);
+export default connect(null, { createStream })(formWrapped);

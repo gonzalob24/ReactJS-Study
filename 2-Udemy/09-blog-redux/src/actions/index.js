@@ -6,11 +6,13 @@ import jsonplaceholder from "../apis/jsonplaceholder";
 export const fetchPostsAndUsers = () => {
 	return async (dispatch, getState) => {
 		// console.log("About to Fetch Posts");
+		// need to call dispatch(method) when calling an action inside an action
 		await dispatch(fetchPosts());
-		// console.log("From action", getState().posts);
+		// console.log("From action", getState());
 		const userIds = _.uniq(_.map(getState().posts, "userId"));
 		// get fetchUser for each id
 		userIds.forEach((id) => dispatch(fetchUser(id)));
+		// console.log("From action", getState());
 	};
 };
 

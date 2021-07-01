@@ -9,6 +9,7 @@ import {
 } from "./types";
 
 import streams from "../apis/streams";
+import history from "../history";
 
 export const signIn = (userId) => {
 	return {
@@ -22,11 +23,14 @@ export const signOut = () => {
 		type: SIGN_OUT,
 	};
 };
-
-export const createStrem = (formValues) => {
-	return async (dispatch) => {
-		const response = await streams.post("/streams", formValues);
+// getState function allows me to access the redux store
+export const createStream = (formValues) => {
+	return async (dispatch, getState) => {
+		const { userId } = getState().auth;
+		const response = await streams.post("/streams", { ...formValues, userId });
 		dispatch({ type: CREATE_STREAM, payload: response.data });
+		// Do some progammatic naviagtion to getthe user back to the root route
+		history.push("/");
 	};
 };
 

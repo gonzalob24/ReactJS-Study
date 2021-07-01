@@ -6,7 +6,10 @@ import {
 	MemoryRouter,
 	Route,
 	Link,
+	Router,
 } from "react-router-dom";
+
+import history from "../history";
 
 // components
 import Header from "./Header";
@@ -21,14 +24,15 @@ import "bootstrap/dist/js/bootstrap";
 const App = () => {
 	return (
 		<div>
-			<BrowserRouter>
+			{/* Now I have access to the history object within my action creators */}
+			<Router history={history}>
 				<Header />
 				<Route path="/" exact component={StreamList} />
 				<Route path="/streams/new" exact component={StreamCreate} />
-				<Route path="/streams/edit" exact component={StreamEdit} />
-				<Route path="/streams/delete" exact component={StreamDelete} />
+				<Route path="/streams/edit/:id" exact component={StreamEdit} />
+				<Route path="/streams/delete/:id" exact component={StreamDelete} />
 				<Route path="/streams/show" exact component={StreamShow} />
-			</BrowserRouter>
+			</Router>
 		</div>
 	);
 };

@@ -1,29 +1,41 @@
 {
-	"streams": [
-		{
-			"title": "First Stream",
-			"description": "This is a test",
-			"id": 1
-		},
-		{
-			"description": "Here is another test",
-			"title": "One more",
-			"id": 2
-		},
-		{
-			"title": "Here",
-			"description": "Delete me",
-			"id": 3
-		},
-		{
-			"title": "Test 2",
-			"description": "here is test 2!",
-			"id": 4
-		},
-		{
-			"title": "Final test",
-			"description": "do the input fields delete?",
-			"id": 8
-		}
-	]
+  "streams": [
+    {
+      "title": "First Stream",
+      "description": "This is a test",
+      "id": 1
+    },
+    {
+      "description": "Here is another test",
+      "title": "One more",
+      "id": 2
+    },
+    {
+      "title": "Here",
+      "description": "Delete me",
+      "id": 3
+    },
+    {
+      "title": "Test 2",
+      "description": "here is test 2!",
+      "id": 4
+    },
+    {
+      "title": "Final test",
+      "description": "do the input fields delete?",
+      "id": 8
+    },
+    {
+      "title": "With UID",
+      "description": "First stream with UID",
+      "userId": "109438450444396800349",
+      "id": 9
+    },
+    {
+      "title": "Id and now pushed",
+      "description": "I was created with ID and pushed to streamList",
+      "userId": "109438450444396800349",
+      "id": 10
+    }
+  ]
 }

@@ -9,6 +9,7 @@ class SearchBar extends React.Component {
 	onFormSubmit(e) {
 		e.preventDefault();
 		// this keyword does not bind to the button submit
+		// pass the term up to the App compoent: child to parent now.
 		this.props.onSubmit(this.state.term);
 	}
 	render() {
