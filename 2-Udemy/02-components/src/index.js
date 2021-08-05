@@ -8,6 +8,9 @@ import faker from "faker";
 import CommentDetail from "./components/CommentDetail";
 import ApprovalCard from "./components/ApprovalCard";
 
+/*
+If I find myself duplicating divs or some code, think about using a component instead
+*/
 const App = () => {
 	return (
 		<div>

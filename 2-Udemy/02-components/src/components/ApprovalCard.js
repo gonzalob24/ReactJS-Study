@@ -11,7 +11,7 @@ const ApprovalCard = (props) => {
 					<a href="/" className="btn btn-primary">
 						Approve
 					</a>
-					<a href="/" className="btn btn-danger">
+					<a href="/" className="btn btn-danger mx-3">
 						ReJect
 					</a>
 				</div>

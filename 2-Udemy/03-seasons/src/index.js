@@ -15,15 +15,22 @@ import "bootstrap/dist/css/bootstrap.css";
 
 // Life cycles with state system
 class App extends React.Component {
+	/* 
+		constructor belongs to JS language: called when instance of the App component is created
+		it is automatically called with the props object, then call the super(props).
+		The constructor overrides the constructor inside React.Component
+		super: reference to the parents constructor function
+	*/
+
 	// constructor(props) {
 	// 	super(props);
-
-	// 	// this.state = {
-	// 	// 	lat: null,
-	// 	// 	errorMessage: "",
-	// 	// };
+	// initialize state. This is the only time we do direct assignment to this.state
+	// this.state = {
+	// 	lat: null,
+	// 		errorMessage: "",
+	// 	};
 	// }
-	// state by itseld
+	// state by itself
 	state = {
 		lat: null,
 		errorMessage: "",
@@ -47,7 +54,9 @@ class App extends React.Component {
 	componentDidUpdate() {
 		console.log("Component updated automatically");
 	}
-	// need to define this render method
+
+	// need to define this render method, render gets called very frequently, all of the time
+	// this will impact performace
 	render() {
 		console.log("seasons: ", this.props);
 		return (
@@ -62,6 +71,21 @@ class App extends React.Component {
 		);
 	}
 }
+
+/**************************************************** */
+const AppOld = () => {
+	window.navigator.geolocation.getCurrentPosition(
+		(position) => console.log(position),
+		(err) => console.log(err)
+	);
+	return (
+		<div>
+			<h2>Hey!!</h2>
+			{/* I need to keep track of state: so use a class component for now */}
+			<h2>{"Latitude: "}</h2>
+		</div>
+	);
+};
 
 const rootApp = document.querySelector("#root");
 
