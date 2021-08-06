@@ -30,7 +30,8 @@ class App extends React.Component {
 	// 		errorMessage: "",
 	// 	};
 	// }
-	// state by itself
+	// state by itself: I don't need to constructor; Babel takes code and implements the
+	// constructor function for me and initialized the state for me.
 	state = {
 		lat: null,
 		errorMessage: "",
