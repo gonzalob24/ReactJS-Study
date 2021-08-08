@@ -16,6 +16,7 @@ class App extends React.Component {
 				query: term,
 			},
 		});
+		console.log("From App: ", this);
 		this.setState({ images: response.data.results });
 	};
 
