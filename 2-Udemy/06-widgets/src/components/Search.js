@@ -11,7 +11,9 @@ const Search = () => {
 		const timerId = setTimeout(() => {
 			setDebouncedTerm(searchTerm);
 		}, 1000);
-
+		// this cancels the timeout
+		// the only thing we can return frome useEffect is a return function.
+		// this function will be called by react automatically when --> there is a change in the variable
 		return () => {
 			clearTimeout(timerId);
 		};
