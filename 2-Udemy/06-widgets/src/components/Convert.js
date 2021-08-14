@@ -13,14 +13,15 @@ const Convert = ({ language, text }) => {
 		const timerId = setTimeout(() => {
 			setDebouncedText(text);
 		}, 1000);
-
+		// clean up runs if text piece of state changes before 1000 mili seconds and clear timer.
 		return () => {
 			clearTimeout(timerId);
 		};
 	}, [text]);
 
 	useEffect(() => {
-		//make API request use query string parameters
+		//make API request use query string parameters when language or text change
+		// with axios post request the 2nd argument is the body then query
 		const doTranslation = async () => {
 			const { data } = await axios.post(
 				"https://translation.googleapis.com/language/translate/v2",

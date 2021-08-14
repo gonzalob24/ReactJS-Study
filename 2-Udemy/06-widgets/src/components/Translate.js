@@ -25,8 +25,9 @@ const Translate = () => {
 
 	const [language, setLanguage] = useState(options[0]);
 	const [text, setText] = useState("");
+
 	return (
-		<div className="container-fluid col-4 m-0 auto">
+		<div className="container-fluid col-6 m-0 auto">
 			<div className="form-floating mb-3">
 				<input
 					type="text"

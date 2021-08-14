@@ -59,6 +59,7 @@ const App = () => {
 				<DropDown
 					label="Select a Color"
 					options={options}
+					// onSelectChange is an event
 					onSelectChange={setSelectedItem}
 					selected={selectedItem}
 				/>
@@ -83,7 +84,7 @@ const App = () => {
 			</Route>
 			<Route path="/dropdown">
 				<DropDown
-					label="Select a Color"
+					label="Select a Color NOW!!"
 					options={options}
 					onSelectChange={setSelectedItem}
 					selected={selectedItem}
