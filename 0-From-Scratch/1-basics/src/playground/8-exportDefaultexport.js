@@ -14,6 +14,7 @@ const area = (r) => Math.PI * r * r;
 // export default (r) => Math.PI *r*r;
 export { square, add, subtract, area as default };
 
+// can only have one default in a file
 // exports:
 // default export
 /*
