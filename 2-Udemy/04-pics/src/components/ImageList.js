@@ -1,3 +1,12 @@
+﻿/*
+ © Copyright 2020 tapasadhikary.com or one of its affiliates.
+ * Some Sample Copyright Text Line
+ * Some Sample Copyright Text Line
+ * Some Sample Copyright Text Line
+ * Some Sample Copyright Text Line
+ * Some Sample Copyright Text Line
+ * Some Sample Copyright Text Line
+*/
 import React from "react";
 // keys are used for perfmance when it comes to rendering as react will look for keys in the DOM
 // and decide if it needs to be rendered again.
